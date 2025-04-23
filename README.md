@@ -8,27 +8,27 @@ The Seat Booking System is designed to simulate a real-time booking platform lik
     - Lock timeout mechanism is used to release locks if the booking is not completed within a specific time window.
 
   - Custom Lock Management
-    a. Designed a lock manager to allow seat unlocking by a different thread (e.g., the confirmation request), since ReentrantLock requires the same thread to unlock.
-    b. Lock ownership mapping handled at the application level using session/user identifiers.
+    - Designed a lock manager to allow seat unlocking by a different thread (e.g., the confirmation request), since ReentrantLock requires the same thread to unlock.
+    - Lock ownership mapping handled at the application level using session/user identifiers.
 
   - Booking Confirmation
-    a. On confirmation, the system:
-    b. Validates lock ownership.
-    c. Marks seats as booked in the database.
-    d. Releases seat locks.
+    - On confirmation, the system:
+    - Validates lock ownership.
+    - Marks seats as booked in the database.
+    - Releases seat locks.
 
   - Concurrency Handling
-    a. Handled with Java concurrent collections and atomic operations to ensure thread-safe updates.
-    b. Multiple users can perform seat operations without interfering with each other’s state.
+    - Handled with Java concurrent collections and atomic operations to ensure thread-safe updates.
+    - Multiple users can perform seat operations without interfering with each other’s state.
 
   - Database Persistence
-    a. Seat states (available, locked, booked) are persisted in the database.
-    b. Transactions ensure atomic updates during booking.
+    - Seat states (available, locked, booked) are persisted in the database.
+    - Transactions ensure atomic updates during booking.
 
   - Exception and Timeout Handling
-    a. Graceful handling of exceptions during lock, unlock, and booking steps.
-    b. Time-based expiry for stale locks.
-    c. Simulated Multi-threading Environment for Testing
-    d. Used thread pools to simulate multiple users booking seats simultaneously.
+    - Graceful handling of exceptions during lock, unlock, and booking steps.
+    - Time-based expiry for stale locks.
+    - Simulated Multi-threading Environment for Testing
+    - Used thread pools to simulate multiple users booking seats simultaneously.
 
   - Unit tests created to verify thread safety and correctness.
