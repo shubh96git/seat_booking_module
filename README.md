@@ -3,9 +3,9 @@ The Seat Booking System is designed to simulate a real-time booking platform lik
 
 # What have been performed
   - Seat Selection & Locking Mechanism Implemented
-    a. Users can select and lock one or more seats.
-    b. A lock is applied using ReentrantLock to prevent race conditions and double bookings.
-    c. Lock timeout mechanism is used to release locks if the booking is not completed within a specific time window.
+    - Users can select and lock one or more seats.
+    - A lock is applied using ReentrantLock to prevent race conditions and double bookings.
+    - Lock timeout mechanism is used to release locks if the booking is not completed within a specific time window.
 
   - Custom Lock Management
     a. Designed a lock manager to allow seat unlocking by a different thread (e.g., the confirmation request), since ReentrantLock requires the same thread to unlock.
